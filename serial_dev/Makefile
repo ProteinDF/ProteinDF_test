@@ -4,6 +4,7 @@ TEST_ENTRY =  \
  Ne_BLYP \
  Ne_B3LYP \
  N2_RHF \
+ N2_RHF.CDK \
  N2_UHF \
  N2_RSVWN5 \
  N2_USVWN5 \
