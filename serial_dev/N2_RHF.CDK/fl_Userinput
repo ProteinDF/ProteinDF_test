@@ -26,7 +26,7 @@
 	scf-acceleration/damping/damping-type = density_matrix
 	xc-potential	= HF
 	J_engine = CD
-	K_engine = FastCD
+	K_engine = FastCDK
 	XC_engine = grid
 	CDAM_tau = 1.0E-12
 	CD_epsilon = 1.0E-8
