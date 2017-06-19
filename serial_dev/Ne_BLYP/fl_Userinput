@@ -1,0 +1,51 @@
+>>>>MAIN
+	step-control	= [create integral guess scf]
+
+>>>>INTEGRAL
+	cut-value	= 1.0e-10
+
+>>>>GUESS
+
+>>>>SCF
+	charge-extrapolate-number	= 0
+	scf-start-guess	= core
+	orbital_independence_threshold  = 0.00
+	orbital_independence_threshold/canonical = 0.00
+	orbital_independence_threshold/lowdin = 0.00
+	orbital-overlap-correspondence	= off
+	orbital-overlap-correspondence-first	= off
+	max-iteration	= 100
+	method	= rks
+	method/rks/electron-number	= 10
+	method/rks/occlevel	= [ 1 - 5 ]
+	convergence/type	= density
+	convergence/threshold	= 1e-4
+	convergence/threshold-energy	= 1e-5
+	scf-acceleration	= damping
+	scf-acceleration/damping/damping-factor	= 0.67
+	scf-acceleration/damping/damping-type = density_matrix
+	xc-potential	= BLYP
+	J_engine = CD
+	K_engine = CD
+	XC_engine = grid
+	CDAM_tau = 1.0E-12
+	CD_epsilon = 1.0E-8
+
+>>>>MOLECULE
+	geometry/cartesian/unit	= angstrom
+	geometry/cartesian/input	= {
+		Ne	  0.00            0.00            0.00
+	}end
+
+	basis-set/orbital	= {
+		Ne = "O-DZVP.Ne"
+	}end
+
+	basis-set/density-auxiliary	= {
+		Ne = "A-DZVP.Ne"
+	}end
+
+	basis-set/exchange-auxiliary	= {
+		Ne = "A-DZVP.Ne"
+	}end
+
