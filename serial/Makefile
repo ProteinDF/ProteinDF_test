@@ -1,6 +1,9 @@
+TEST_ENTRY_BAK =  \
+ ASPx_HF
+
 TEST_ENTRY = \
   CH3CHO_B3LYP \
-  ASPx_HF
+  CH3COO_X
 
 # TEST_ENTRYの後にincludeすること
 include ../common.mk
