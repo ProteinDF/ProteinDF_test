@@ -1,32 +1,9 @@
 TEST_ENTRY_BAK =  \
- GLY_HF01     \
- GLY_HF02     \
- GLY_HF03     \
- GLY_SVWN01   \
- GLY_SVWN02   \
- GLY_SVWN03   \
- GLY_BLYP01   \
- GLY_BLYP02   \
- GLY_BLYP03   \
- GLY_B3LYP01  \
- GLY_B3LYP02  \
- GLY_B3LYP03  \
- ASPx_HF01	  \
- ASPx_HF02	  \
- ASPx_HF03	  \
- ASPx_SVWN01  \
- ASPx_SVWN02  \
- ASPx_SVWN03  \
- ASPx_BLYP01  \
- ASPx_BLYP02  \
- ASPx_BLYP03  \
- ASPx_B3LYP01 \
- ASPx_B3LYP02 \
- ASPx_B3LYP03 
+ ASPx_HF
 
 TEST_ENTRY = \
   CH3CHO_B3LYP \
-  ASPx_HF
+  CH3COO_X
 
 # TEST_ENTRYの後にincludeすること
 include ../common.mk
