@@ -21,9 +21,13 @@
 	convergence/type	= density
 	convergence/threshold	= 1e-4
 	convergence/threshold-energy	= 1e-5
-	scf-acceleration	= anderson
+	scf-acceleration	= damping
 	scf-acceleration/damping/damping-factor	= 0.67
 	scf-acceleration/damping/damping-type = density_matrix
+	scf_acceleration/anderson/start_number = 20
+	scf_acceleration/anderson/damping_factor = 0.5
+	scf_acceleration/DIIS/start = 10
+	scf_acceleration/DIIS/last_items = 7
 	xc-potential	= HF
 	J_engine = CD
 	K_engine = CD

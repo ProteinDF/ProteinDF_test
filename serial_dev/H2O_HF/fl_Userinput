@@ -2,7 +2,7 @@
 	step-control	= [create integral guess scf force]
 
 >>>>INTEGRAL
-	cut-value	= 1.0e-10
+	cut-value	= 1.0e-16
 
 >>>>GUESS
 
@@ -19,8 +19,8 @@
 	method/rks/electron-number	= 10
 	method/rks/occlevel	= [ 1 - 5 ]
 	convergence/type	= density
-	convergence/threshold	= 1e-4
-	convergence/threshold-energy	= 1e-5
+	convergence/threshold	= 1e-7
+	convergence/threshold-energy	= 1e-8
 	scf-acceleration	= damping
 	scf-acceleration/damping/damping-factor	= 0.67
 	scf-acceleration/damping/damping-type = density_matrix
@@ -28,8 +28,12 @@
 	J_engine = CD
 	K_engine = CD
 	XC_engine = grid
-	CDAM_tau = 1.0E-12
-	CD_epsilon = 1.0E-8
+	CDAM_tau = 1.0E-16
+	CD_epsilon = 1.0E-16
+
+	// CD/use_mmap_matrix = no
+	// debug/DfCD/build_supermatrix = yes
+	debug/DfCD/check_CD = yes
 
 >>>>MOLECULE
 	geometry/cartesian/unit	= angstrom

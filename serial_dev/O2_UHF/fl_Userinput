@@ -2,7 +2,7 @@
 	step-control	= [create integral guess scf]
 
 >>>>INTEGRAL
-	cut-value	= 1.0e-10
+	cut-value	= 1.0e-16
 
 >>>>GUESS
 
@@ -27,11 +27,11 @@
 	scf-acceleration/damping/damping-factor	= 0.67
 	scf-acceleration/damping/damping-type = density_matrix
 	xc-potential	= HF
-	J_engine = CD
-	K_engine = CD
+	J_engine = conventional
+	K_engine = conventional
 	XC_engine = grid
-	CDAM_tau = 1.0E-12
-	CD_epsilon = 1.0E-8
+	CDAM_tau = 1.0E-16
+	CD_epsilon = 1.0E-10
 
 >>>>MOLECULE
 	geometry/cartesian/unit	= angstrom
