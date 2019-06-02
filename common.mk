@@ -1,15 +1,15 @@
 # ProteinDF test Makefile
 include ../env.mk
 
-TEST_RESULT = $(addsuffix .db,  $(TEST_ENTRY))
+TEST_RESULT = $(addsuffix .pdf, $(TEST_ENTRY))
+TEST_DB     = $(addsuffix .db,  $(TEST_ENTRY))
 TEST_LOG    = $(addsuffix .log, $(TEST_ENTRY))
 
-.PHONY: check clean
-
+.PHONY: pdf check clean
 check: $(TEST_LOG)
 
 $(TEST_RESULT):
-	@echo ">>>> $(basename $@)"
+	@echo ">>>> RUN ProteinDF: $(basename $@)"
 	@(cd $(basename $@); $(PDF_CLEAN); $(PDF_SETUP))
 	@echo "running ProteinDF"
 	@(cd $(basename $@); \
@@ -17,6 +17,12 @@ $(TEST_RESULT):
 			./pre_pdf.sh ;\
 		fi; \
 		$(PDF_CMD); \
+	)
+	@touch $@
+
+%.db: %.pdf
+	@echo ">>>> MAKE DB: $(basename $@)"
+	@(cd $(basename $@); \
 		$(PDF_ARCHIVE) \
 	)
 	@mv $(basename $@)/pdfresults.db $@
