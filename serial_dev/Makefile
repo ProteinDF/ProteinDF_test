@@ -16,13 +16,14 @@ TEST_ENTRY =  \
  H2O_SVWN5 \
  H2O_BLYP \
  H2O_B3LYP \
- CH3CHO_SVWN_GF
+ CH3COOX_HF.array \
+ CH3COOX_HF.mmap \
+ CH3CHO_SVWN_GF 
 
 # O2_UHF \
 # O2_USVWN5 \
 # O2_UBLYP \
 # O2_UB3LYP \
-
 
 # GLY_HF01     \
 # GLY_HF02     \

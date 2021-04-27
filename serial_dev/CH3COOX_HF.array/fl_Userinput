@@ -35,7 +35,7 @@
 	CDAM_tau = 1.0E-12
 	CD_epsilon = 1.0E-8
 
-	CD/intermediate_file_format = array_mmap
+        CD/intermediate_file_format = array
 
 >>>>MOLECULE
 	geometry/cartesian/unit	= angstrom

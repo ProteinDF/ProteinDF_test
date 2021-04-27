@@ -1,0 +1,69 @@
+>>>>MAIN
+    step-control = [create integral guess scf]
+
+    scf-start-guess = harris
+    method = RKS
+    method/nsp/electron-number = 78
+    method/nsp/occlevel = [1 - 39]
+    max-iteration = 100
+    orbital-independence-threshold  = 0.007
+    scf-acceleration/damping/damping-type = density_matrix
+    scf-acceleration = damping
+    scf-acceleration/damping/damping-factor = 0.85
+    xc-potential = b3lyp
+
+    J_engine = CD
+    K_engine = CD
+    XC_engine = grid    
+
+>>>>MOLECULE
+    geometry/cartesian/unit = angstrom
+    geometry/cartesian/input = {
+         H   2.000000   1.000000  -0.000000 // /model_1/_/1/1:HH31
+         C   2.000000   2.090000   0.000000 // /model_1/_/1/2:CH3
+         H   1.486000   2.454000   0.890000 // /model_1/_/1/3:HH32
+         H   1.486000   2.454000  -0.890000 // /model_1/_/1/4:HH33
+         C   3.427000   2.641000  -0.000000 // /model_1/_/1/5:C
+         O   4.391000   1.877000  -0.000000 // /model_1/_/1/6:O
+        
+         N   3.555000   3.970000  -0.000000 // /model_1/_/2/7:N
+         H   4.474000   4.388000  -0.000000 // /model_1/_/2/8:H
+         C   2.404000   4.850000  -0.000000 // /model_1/_/2/9:CA
+         H   1.803000   4.663000  -0.890000 // /model_1/_/2/10:HA
+         C   1.536000   4.618000   1.232000 // /model_1/_/2/11:CB
+         H   2.122000   4.810000   2.131000 // /model_1/_/2/12:HB1
+         H   0.680000   5.292000   1.206000 // /model_1/_/2/13:HB2
+         H   1.185000   3.586000   1.241000 // /model_1/_/2/14:HB3
+         C   2.831000   6.311000  -0.000000 // /model_1/_/2/15:C
+         O   4.023000   6.612000  -0.000000 // /model_1/_/2/16:O
+        
+         N   1.854000   7.219000  -0.000000 // /model_1/_/3/17:N
+         H   2.079000   8.204000  -0.000000 // /model_1/_/3/18:H
+         C   0.455000   6.839000  -0.000000 // /model_1/_/3/19:CH3
+         H   0.373000   5.752000   0.000000 // /model_1/_/3/20:HH31
+         H  -0.031000   7.240000   0.890000 // /model_1/_/3/21:HH32
+         H  -0.031000   7.240000  -0.890000 // /model_1/_/3/22:HH33
+        }
+
+    basis-set/orbital = {
+        H = "O-DZVP2.H"
+        C = "O-DZVP2.C"
+        O = "O-DZVP2.O"
+        N = "O-DZVP2.N"
+        }
+
+    basis-set/density-auxiliary = {
+        H = "A-DZVP2.H"
+        C = "A-DZVP2.C"
+        O = "A-DZVP2.O"
+        N = "A-DZVP2.N"
+        }
+
+    basis-set/exchange-auxiliary = {
+        H = "A-DZVP2.H"
+        C = "A-DZVP2.C"
+        O = "A-DZVP2.O"
+        N = "A-DZVP2.N"
+        }
+
+

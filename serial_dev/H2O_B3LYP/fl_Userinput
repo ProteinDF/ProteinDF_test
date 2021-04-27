@@ -19,7 +19,7 @@
 	method/rks/electron-number	= 10
 	method/rks/occlevel	= [ 1 - 5 ]
 	convergence/type	= density
-	convergence/threshold	= 1e-4
+	convergence/threshold	= 1e-5
 	convergence/threshold-energy	= 1e-5
 	scf-acceleration	= damping
 	scf-acceleration/damping/damping-factor	= 0.67
@@ -28,8 +28,8 @@
 	J_engine = CD
 	K_engine = CD
 	XC_engine = grid
-	CDAM_tau = 1.0E-12
-	CD_epsilon = 1.0E-8
+	CDAM_tau = 1.0E-10
+	CD_epsilon = 1.0E-6
 
 >>>>MOLECULE
 	geometry/cartesian/unit	= angstrom
