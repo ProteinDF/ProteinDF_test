@@ -1,4 +1,6 @@
 # setup
+SHELL = /usr/bin/zsh
+
 PDF_SERIAL = ${PDF_HOME}/bin/PDF.x
 PDF_PARALLEL = ${MPIEXEC} ${PDF_HOME}/bin/PPDF.x
 

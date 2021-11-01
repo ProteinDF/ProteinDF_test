@@ -18,6 +18,7 @@ TEST_ENTRY =  \
  H2O_B3LYP \
  CH3COOX_HF.array \
  CH3COOX_HF.mmap \
+ CH3COOX_HF.array_mmap \
  CH3CHO_SVWN_GF 
 
 # O2_UHF \

@@ -32,8 +32,8 @@
 	J_engine = CD
 	K_engine = CD
 	XC_engine = grid
-	CDAM_tau = 1.0E-12
-	CD_epsilon = 1.0E-8
+	CDAM_tau = 1.0E-10
+	CD_epsilon = 1.0E-4
 
         CD/intermediate_file_format = array
 
