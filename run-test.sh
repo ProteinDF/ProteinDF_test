@@ -7,5 +7,7 @@ if [ -f ${PDF_HOME}/bin/activate ]; then
 fi
 
 # make check_serial 2>&1 | tee make_check_serial.log
-make check_serial_dev 2>&1 | tee make_check_serial_dev.log
+# make check_serial_dev 2>&1 | tee make_check_serial_dev.log
 # make check_parallel 2>&1 | tee make_check_parallel.log
+make check_parallel_dev 2>&1 | tee make_check_parallel_dev.log
+
