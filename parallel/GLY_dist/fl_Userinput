@@ -24,6 +24,10 @@
     CD_epsilon = 1.0E-4
     CDAM_tau_K = 1.0E-4
     CD_epsilon_K = 1.0E-4
+
+    // debug/DfInitialGuessHarris/save_S_tilde = yes
+    // debug/DfInitialGuessHarris/save_S_inv = yes
+    // debug/DfInitialGuessHarris/save_P_high = yes
         
 >>>>MOLECULE
     geometry/cartesian/unit = angstrom
