@@ -19,5 +19,5 @@ clean:
 	(cd serial; make clean)
 	(cd serial_dev; make clean)
 	(cd parallel; make clean)
-	#(cd parallel_dev; make clean)
+	(cd parallel_dev; make clean)
 
