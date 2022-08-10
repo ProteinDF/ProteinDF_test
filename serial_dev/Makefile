@@ -1,25 +1,25 @@
-TEST_ENTRY =  \
- Ne_HF \
- Ne_SVWN5 \
- Ne_BLYP \
- Ne_B3LYP \
- N2_RHF \
- N2_RHF.CDK \
- N2_UHF \
- N2_RSVWN5 \
- N2_USVWN5 \
- N2_RBLYP \
- N2_UBLYP \
- N2_RB3LYP \
- N2_UB3LYP \
- H2O_HF \
- H2O_SVWN5 \
- H2O_BLYP \
- H2O_B3LYP \
- CH3COOX_HF.array \
- CH3COOX_HF.mmap \
- CH3COOX_HF.array_mmap \
- CH3CHO_SVWN_GF 
+TARGETS :=  \
+  Ne_HF \
+  Ne_SVWN5 \
+  Ne_BLYP \
+  Ne_B3LYP \
+  N2_RHF \
+  N2_RHF.CDK \
+  N2_UHF \
+  N2_RSVWN5 \
+  N2_USVWN5 \
+  N2_RBLYP \
+  N2_UBLYP \
+  N2_RB3LYP \
+  N2_UB3LYP \
+  H2O_HF \
+  H2O_SVWN5 \
+  H2O_BLYP \
+  H2O_B3LYP \
+  CH3COOX_HF.array \
+  CH3COOX_HF.mmap \
+  CH3COOX_HF.array_mmap \
+  CH3CHO_SVWN_GF 
 
 # O2_UHF \
 # O2_USVWN5 \
@@ -52,8 +52,28 @@ TEST_ENTRY =  \
 # ASPx_B3LYP03 
 
 
-# TEST_ENTRYの後にincludeすること
-include ../common.mk
-PDF_CMD := $(PDF_SERIAL)
+# include $(PDF_TEST_HOME)/env.mk
+# export PDF_CMD := $(PDF_SERIAL)
+
+
+.PHONY: test clean
+
+test:
+	@for TARGET in $(TARGETS); do \
+	( \
+		echo "TARGET=$${TARGET}"; \
+		cd $${TARGET}; \
+		PDF_CMD=$(PDF_SERIAL) make -f $${PDF_TEST_HOME}/common.mk test || exit 50; \
+	) || exit 70; \
+	done
+
+
+clean:
+	@for TARGET in $(TARGETS); do \
+	( \
+		cd $${TARGET}; \
+		make -f ${PDF_TEST_HOME}/common.mk clean; \
+	) \
+	done
 
 

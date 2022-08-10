@@ -2,6 +2,6 @@ fl_Out_Std
 fl_Work/
 pdfparam.mpac
 *.log
-*.db
+# *.db
 *.pdf
 

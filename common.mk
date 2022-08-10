@@ -1,41 +1,42 @@
 # ProteinDF test Makefile
-include ../env.mk
 
-TEST_RESULT = $(addsuffix .pdf, $(TEST_ENTRY))
-TEST_DB     = $(addsuffix .db,  $(TEST_ENTRY))
-TEST_LOG    = $(addsuffix .log, $(TEST_ENTRY))
+
+DB_BASENAME := pdfresults
+DB_SUFFIX := h5
+
+DO_TEST   = $(addsuffix .out, $(TEST_ENTRY))
+TEST_DB   = $(addsuffix .$(DB_SUFFIX), $(TEST_ENTRY))
+TEST_LOG  = $(addsuffix .log, $(TEST_ENTRY))
+
 
 .PHONY: pdf check clean
-check: $(TEST_LOG)
+test: test.log
 
-$(TEST_RESULT):
-	@echo ">>>> RUN ProteinDF: $(basename $@)"
-	@(cd $(basename $@); $(PDF_CLEAN); $(PDF_SETUP))
+
+pdf.log:
+	@echo ">>>> RUN ProteinDF"
+	@${PDF_CLEAN}
+	@${PDF_SETUP}
+
 	@echo "running ProteinDF"
-	@(cd $(basename $@); \
-		if [ -f ./pre_pdf.sh ]; then \
-			./pre_pdf.sh ;\
-		fi; \
-		$(PDF_CMD); \
-	)
-	@touch $@
+	@if [ -f ./pre_pdf.sh ]; then \
+		./pre_pdf.sh ;\
+	fi
+	${PDF_CMD} 2>&1 | tee $@ || exit 110
 
-%.db: %.pdf
-	@echo ">>>> MAKE DB: $(basename $@)"
-	@(cd $(basename $@); \
-		$(PDF_ARCHIVE) \
-	)
-	@mv $(basename $@)/pdfresults.db $@
 
-%.log: %.db
-	@echo "check results ..."
-	@$(PDF_TEST) $< $(basename $@)/pdfresults_std.db 2>&1 > $@
-	@echo
+$(DB_BASENAME).$(DB_SUFFIX): pdf.log
+	@echo ">>>> MAKE DB"
+	$(PDF_ARCHIVE)
+
+
+test.log: $(DB_BASENAME).$(DB_SUFFIX)
+	@echo ">>> CHECK"
+	$(PDF_TEST) $< reference.$(DB_SUFFIX) 2>&1 | tee $@ 
+
 
 clean:
-	@for i in $(TEST_ENTRY); do  \
-		(cd $$i; $(PDF_CLEAN)); \
-	done
-	@$(RM) $(TEST_RESULT)
-	@$(RM) $(TEST_LOG)
+	@${PDF_CLEAN}
+	@$(RM) pdf.log $(DB_BASENAME).$(DB_SUFFIX) test.log
+
 
