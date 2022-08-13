@@ -7,10 +7,11 @@ if [ -f ${PDF_HOME}/bin/activate ]; then
 fi
 
 export OMP_NUM_THREADS=4
-# make test_serial 2>&1 | tee make_test_serial.log
+make test_serial 2>&1 | tee make_test_serial.log
 make test_serial_dev 2>&1 | tee make_test_serial_dev.log
 
 export OMP_NUM_THREADS=2
-#make check_parallel 2>&1 | tee make_check_parallel.log
-#make check_parallel_dev 2>&1 | tee make_check_parallel_dev.log
+export MPIEXEC="mpiexec -n 4"
+make test_parallel 2>&1 | tee make_test_parallel.log
+make test_parallel_dev 2>&1 | tee make_test_parallel_dev.log
 

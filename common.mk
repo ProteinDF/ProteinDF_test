@@ -14,7 +14,7 @@ test: test.log
 
 
 pdf.log:
-	@echo ">>>> RUN ProteinDF"
+	@echo "> RUN ProteinDF"
 	@${PDF_CLEAN}
 	@${PDF_SETUP}
 
@@ -22,16 +22,16 @@ pdf.log:
 	@if [ -f ./pre_pdf.sh ]; then \
 		./pre_pdf.sh ;\
 	fi
-	${PDF_CMD} 2>&1 | tee $@ || exit 110
+	${PDF_CMD} 2>&1 | tee $@ 
 
 
 $(DB_BASENAME).$(DB_SUFFIX): pdf.log
-	@echo ">>>> MAKE DB"
+	@echo "> MAKE DB"
 	$(PDF_ARCHIVE)
 
 
 test.log: $(DB_BASENAME).$(DB_SUFFIX)
-	@echo ">>> CHECK"
+	@echo "> CHECK"
 	$(PDF_TEST) $< reference.$(DB_SUFFIX) 2>&1 | tee $@ 
 
 

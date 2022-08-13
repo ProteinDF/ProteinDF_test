@@ -1,4 +1,4 @@
-TARGETS :=  \
+TARGETS := \
   Ne_HF \
   Ne_SVWN5 \
   Ne_BLYP \
@@ -52,18 +52,26 @@ TARGETS :=  \
 # ASPx_B3LYP03 
 
 
-# include $(PDF_TEST_HOME)/env.mk
-# export PDF_CMD := $(PDF_SERIAL)
-
 
 .PHONY: test clean
 
 test:
 	@for TARGET in $(TARGETS); do \
 	( \
-		echo "TARGET=$${TARGET}"; \
+		echo ">>>> $${TARGET}"; \
 		cd $${TARGET}; \
-		PDF_CMD=$(PDF_SERIAL) make -f $${PDF_TEST_HOME}/common.mk test || exit 50; \
+		make PDF_CMD="$${PDF_SERIAL}" -f "$${PDF_TEST_HOME}/common.mk" test || exit 50; \
+	) || exit 70; \
+	done
+
+
+test1:
+	@for TARGET in $(TARGETS); do \
+	( \
+		echo "TARGET=$${TARGET}"; \
+		echo "PDF_SERIAL=$${PDF_SERIAL}"; \
+		cd $${TARGET}; \
+		PDF_CMD="$$(PDF_SERIAL)" make -f "$${PDF_TEST_HOME}/common.mk" test || exit 50; \
 	) || exit 70; \
 	done
 

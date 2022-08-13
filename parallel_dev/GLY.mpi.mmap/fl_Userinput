@@ -24,6 +24,7 @@
     CD_epsilon_K = 1.0E-4
 
     CD/intermediate_file_format = mmap
+    local_temp_path = /tmp
         
 >>>>MOLECULE
     geometry/cartesian/unit = angstrom

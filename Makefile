@@ -1,3 +1,7 @@
+SHELL = /bin/bash
+.SHELLFLAGS = -o pipefail -c
+
+
 MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 export PDF_TEST_HOME := $(shell (cd $(MAKEFILE_DIR); pwd))
 
