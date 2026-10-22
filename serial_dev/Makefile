@@ -19,7 +19,11 @@ TARGETS := \
   CH3COOX_HF.array \
   CH3COOX_HF.mmap \
   CH3COOX_HF.array_mmap \
-  CH3CHO_SVWN_GF 
+  CH3CHO_SVWN_GF \
+  H2O_SVWN_XCFIT \
+  O2_USVWN_XCFIT \
+  O2_ROSVWN_XCFIT \
+  O2_ROSVWN_XCFIT.legacy
 
 # O2_UHF \
 # O2_USVWN5 \
