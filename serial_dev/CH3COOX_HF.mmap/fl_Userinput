@@ -14,13 +14,13 @@
 	orbital_independence_threshold/lowdin = 0.00
 	orbital-overlap-correspondence	= off
 	orbital-overlap-correspondence-first	= off
-	max-iteration	= 100
+	max-iteration	= 300
 	method	= rks
 	method/rks/electron-number	= 32
 	method/rks/occlevel	= [ 1 - 16 ]
 	convergence/type	= density
-	convergence/threshold	= 1e-5
-	convergence/threshold-energy	= 1e-6
+	convergence/threshold	= 1e-6
+	convergence/threshold-energy	= 1e-8
 	scf-acceleration	= damping
 	scf-acceleration/damping/damping-factor	= 0.67
 	scf-acceleration/damping/damping-type = density_matrix
@@ -32,8 +32,8 @@
 	J_engine = CD
 	K_engine = CD
 	XC_engine = grid
-	CDAM_tau = 1.0E-10
-	CD_epsilon = 1.0E-4
+	CDAM_tau = 1e-12
+	CD_epsilon = 1e-8
 
         CD/intermediate_file_format = mmap
 
