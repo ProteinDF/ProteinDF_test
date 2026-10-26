@@ -14,13 +14,13 @@
 	orbital_independence_threshold/lowdin = 0.00
 	orbital-overlap-correspondence	= off
 	orbital-overlap-correspondence-first	= off
-	max-iteration	= 100
+	max-iteration	= 300
 	method	= rks
 	method/rks/electron-number	= 10
 	method/rks/occlevel	= [ 1 - 5 ]
 	convergence/type	= density
-	convergence/threshold	= 1e-4
-	convergence/threshold-energy	= 1e-5
+	convergence/threshold	= 1e-6
+	convergence/threshold-energy	= 1e-8
 	scf-acceleration	= damping
 	scf-acceleration/damping/damping-factor	= 0.67
 	scf-acceleration/damping/damping-type = density_matrix
